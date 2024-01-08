@@ -1,0 +1,34 @@
+<!-- src/app/home/home.page.html -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Auction</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment  (ionSelect)="changeSegment($event)" [ngModel]="selectedSegment">
+    <ion-segment-button value="medium">
+      Medium
+    </ion-segment-button>
+    <ion-segment-button value="artist">
+      Artist
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectedSegment === 'medium'">
+    <app-browse-medium></app-browse-medium>
+  </div>
+
+  <!-- browse.page.html -->
+
+<div *ngIf="selectedSegment === 'artist'">
+  <ion-card *ngFor="let artist of artists">
+    <ion-card-content>
+      <app-browse-artist [artist]="artist"></app-browse-artist>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+
+</ion-content>

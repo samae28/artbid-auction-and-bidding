@@ -1,0 +1,33 @@
+<div *ngIf="selectedSegment === 'upcoming'">
+  <ion-row>
+    <ion-col size="3" class="custom-card-upcoming">
+      <ion-card class="dateColumn">
+        <ion-card-header>   
+          <ion-card-subtitle>2024</ion-card-subtitle>
+          <ion-card-subtitle>JAN</ion-card-subtitle>
+          <ion-card-title>31</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+    <ion-col size="9">
+      <ion-card class="custom-card">
+        <img class="customArtworkImage" alt="Silhouette of mountains" src="assets/images/art1.jpg" />
+        <ion-card-header>
+          <ion-card-title>Artwork Title</ion-card-title>      
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-item lines="none">
+            <ion-thumbnail slot="start">
+              <img src="assets/images/user1.jpg" alt="">
+            </ion-thumbnail>
+            <ion-label class="artist-info">
+              <h4>Artist Name</h4>
+              <p class="bid-amount">P500</p>
+            </ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</div>

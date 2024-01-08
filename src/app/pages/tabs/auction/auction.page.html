@@ -1,0 +1,33 @@
+<!-- src/app/home/home.page.html -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Auction</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment (ionSelect)="changeSegment($event)" [ngModel]="selectedSegment">
+    <ion-segment-button value="current">
+      Current
+    </ion-segment-button>
+    <ion-segment-button value="upcoming">
+      Upcoming
+    </ion-segment-button>
+    <ion-segment-button value="past">
+      Past
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectedSegment === 'current'">
+    <app-auction-current></app-auction-current>
+  </div>
+
+  <div *ngIf="selectedSegment === 'upcoming'">
+    <app-auction-upcoming></app-auction-upcoming>
+  </div>
+
+  <div *ngIf="selectedSegment === 'past'">
+    <app-auction-past></app-auction-past>
+  </div>
+</ion-content>

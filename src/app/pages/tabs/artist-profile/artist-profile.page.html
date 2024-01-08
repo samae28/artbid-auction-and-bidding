@@ -1,0 +1,44 @@
+<!-- artist-profile.component.html -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ artist.name }} Profile</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="getBackHref()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-img [src]="artist.artistImage" alt="{{ artist.name }} Image"></ion-img>
+      <ion-card-title>{{ artist.name }}</ion-card-title>
+      <ion-card-subtitle>{{ artist.artMedium }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{ artist.bio }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list *ngIf="artist.artworks.length > 0">
+    <ion-list-header>
+      <ion-label>
+        <h4>Artworks by {{ artist.name }}</h4>
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let artwork of artist.artworks" [routerLink]="['/', 'tabs', 'artworks', artwork.uid]">
+      <ion-thumbnail slot="start">
+        <img [src]="artwork.image" alt="{{ artwork.title }} Image">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{ artwork.title }}</h3>
+        <p>{{ artwork.artMedium }}</p>
+        <p>Starting Bid: P{{ artwork.startingBid }}</p>
+        <p *ngIf="artwork.isAuction">Current Bid: P{{ artwork.currentBid }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

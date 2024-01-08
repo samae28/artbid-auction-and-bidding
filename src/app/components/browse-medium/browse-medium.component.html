@@ -1,0 +1,31 @@
+<!-- browse-medium.component.html -->
+
+<!-- <div *ngIf="selectedSegment === 'medium'">
+  <ion-row>
+    <ion-col size="6" class="custom-card-medium" *ngFor="let medium of mediums">
+      <a [href]="'/tabs/artmedium/' + medium.uid" routerDirection="forward">
+        <ion-card>
+          <img class="customArtworkMedium" [alt]="medium.artMediumName" [src]="medium.image" />
+          <ion-card-header>
+            <ion-card-subtitle>{{ medium.artMediumName }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </a>
+    </ion-col>
+  </ion-row>
+</div> -->
+
+<div *ngIf="selectedSegment === 'medium'">
+  <ion-row>
+    <ion-col size="6" class="custom-card-medium" *ngFor="let medium of mediums">
+      <a [href]="'/tabs/artwork-medium/' + medium.uid" routerDirection="forward">
+        <ion-card>
+          <img class="customArtworkMedium" [alt]="medium.artMediumName" [src]="medium.image" />
+          <ion-card-header>
+            <ion-card-subtitle>{{ medium.artMediumName }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </a>
+    </ion-col>
+  </ion-row>
+</div>

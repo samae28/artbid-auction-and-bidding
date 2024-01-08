@@ -1,0 +1,17 @@
+<!-- browse-artist.component.html -->
+
+<ion-list lines="none">
+  <a [href]="'/tabs/artist-profile/' + artist.uid" routerDirection="forward">
+
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <img [src]="'assets/images/' + artist.artistImage" alt="{{ artist.artist }} Image">
+
+    </ion-thumbnail>
+    <ion-label>
+      <h4>{{ artist.artist }}</h4>
+      <p>{{ artist.description }}</p>
+    </ion-label>
+  </ion-item>
+  </a>
+</ion-list>

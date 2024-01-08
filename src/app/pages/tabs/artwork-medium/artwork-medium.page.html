@@ -1,0 +1,24 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-title>{{data?.artMediumName}}</ion-title> -->
+    
+    <ion-buttons slot="start" >
+      <ion-back-button [defaultHref]="'tabs/browse'"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="data?.artMediumName" class="borderBottom">
+    <ion-row class="ion-padding-horizontal" class="dashedBorderBottom">
+      <h1>{{data?.artMediumName}}</h1>
+      <ion-text><p>{{data?.description}}</p></ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4"></ion-col>
+      <ion-col size="4"></ion-col>
+      <ion-col size="4"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
