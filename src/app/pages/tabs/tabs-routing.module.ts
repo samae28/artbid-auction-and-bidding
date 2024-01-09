@@ -54,7 +54,11 @@ const routes: Routes = [
   {
     path: 'artwork-medium/:artWorkMediumId',
     loadChildren: () => import('./artwork-medium/artwork-medium.module').then( m => m.ArtworkMediumPageModule)
+  },  {
+    path: 'address',
+    loadChildren: () => import('./address/address.module').then( m => m.AddressPageModule)
   },
+
 ];
 
 @NgModule({
