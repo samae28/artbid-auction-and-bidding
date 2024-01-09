@@ -19,7 +19,11 @@ export class AuthService {
   }
 
   async register(formValue) {
-    return await this.storage.setStorage('uid', 'HSAJDHGSJGDSJHADJS');
+    // return await this.storage.setStorage('uid', 'HSAJDHGSJGDSJHADJS');
+    try {
+
+    } catch(e) {
+      throw(e);}
   }
 
   async resetPassword(email: string){

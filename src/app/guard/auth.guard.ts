@@ -13,21 +13,22 @@ export class AuthGuard implements CanLoad {
     private router: Router
     ) {}
 
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.authService.getId().then(id => {
-      console.log('auth guard checking id:', id);
-      if(id) return true;
-      else {
+    canLoad(
+      route: Route,
+      segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
+      return this.authService.getId().then(id => {
+        console.log('auth guard checking id: ', id);
+        if(id) return true;
+        else {
+          // redirect to login page
+          this.router.navigateByUrl('/login');
+          return false;
+        }
+      })
+      .catch(e => {
+        console.log(e);
         this.router.navigateByUrl('/login');
-        return false;
-      }
-    })
-    .catch(e => {
-      console.log(e)
-      this.router.navigateByUrl('/login');
-        return false;
-    })
-  }
+          return false;
+      });
+    }
 }

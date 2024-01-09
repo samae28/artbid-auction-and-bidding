@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "artbid-ca0dd"
+  },
+  "targets": {
+    "artbid-ca0dd": {
+      "hosting": {
+        "app": [
+          "artbid-ca0dd"
+        ]
+      }
+    }
+  }
+}
