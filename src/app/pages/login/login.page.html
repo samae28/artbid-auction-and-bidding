@@ -38,7 +38,9 @@
           <p class="errorMsg">* Please must of minimum 8 characters</p>
         </ion-text>
       </ion-list>
-      <p class="ion-text-right">Forgot Password?</p>
+
+      <p class="ion-text-right" routerLink="/login/forgot-password">Forgot Password?</p>
+
       <ion-button 
         *ngIf="!isLogin"
         [disabled]="!f.valid"
@@ -60,7 +62,10 @@
       </div>
 
     </form>
-    <ion-text color="primary" class="ion-text-center">
+    <ion-text 
+      color="primary" 
+      class="ion-text-center"
+      routerLink="/login/signup">
       <p class="marginTop">
         Don't have an account?
         <b>Sign Up</b>

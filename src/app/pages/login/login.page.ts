@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { GlobalService } from 'src/app/services/global/global.service';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,39 @@ export class LoginPage implements OnInit {
   type: boolean = true;
   isLogin = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private global: GlobalService, private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit() {
+    // this.isLoggedIn();
   }
+
+  async isLoggedIn(){
+    try {
+      this.global.showLoader();
+      const val = await this.authService.getId();
+      console.log(val);
+      if(val) this.navigate();
+      this.global.hideLoader();
+    } catch (e) {
+      console.log(e);
+      this.global.hideLoader();
+    }
+  }
+
+  // async isLoggedIn() {
+  //   try {
+  //     this.global.showLoader();
+  //     const val = await this.authService.getId();
+  //     console.log(val);
+  //     if (val) {
+  //       this.navigate();
+  //     }
+  //     this.global.hideLoader();
+  //   } catch (e) {
+  //     console.log(e);
+  //     this.global.hideLoader();
+  //   }
+  // }
 
   changeType() {
     this.type = !this.type;
@@ -34,7 +63,7 @@ export class LoginPage implements OnInit {
     this.isLogin = true;
     this.authService.login(form.value.email, form.value.password).then(data => {
       console.log(data);
-      this.router.navigateByUrl('/tabs');
+      this.navigate();
       this.isLogin = false;
       form.reset();
     })
@@ -42,6 +71,10 @@ export class LoginPage implements OnInit {
       console.log(e);
       this.isLogin = false;
     })
+  }
+
+  navigate() {
+    this.router.navigateByUrl('/tabs');
   }
 
 }
